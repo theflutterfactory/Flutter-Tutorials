@@ -21,6 +21,10 @@ class _LoginPageState extends State<LoginPage> {
               'Coding with Curry',
               style: TextStyle(fontSize: 32),
             ),
+            RaisedButton(
+              child: Text('Go to Feed'),
+              onPressed: () => Navigator.pushReplacementNamed(context, '/feed'),
+            )
           ],
         ),
       ),
