@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatefulWidget {
-  DetailPage();
+  final String detailInfo;
+
+  DetailPage(this.detailInfo);
 
   @override
   State<StatefulWidget> createState() {
@@ -14,7 +16,11 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Detail'),
+        title: Text(widget.detailInfo),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context, false),
+        ),
       ),
       body: Center(
         child: Column(

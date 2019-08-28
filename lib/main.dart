@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import './pages/login.dart';
+import './pages/feed.dart';
+import './pages/detail.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,40 +13,39 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Coding with Curry'),
-    );
-  }
-}
+      home: LoginPage(),
+      routes: {
+        '/login': (context) => LoginPage(),
+        '/feed': (context) => FeedPage(),
+      },
+      onGenerateRoute: (RouteSettings settings) {
+        final List<String> pathElements = settings.name.split('/');
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+        if (pathElements[0] != '') {
+          return null;
+        }
 
-  final String title;
+        switch (pathElements[1]) {
+          case 'detailId':
+            final String detailId = pathElements[2];
 
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
+            print("DetailId: $detailId");
 
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('Coding with Curry'),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-        onPressed: () {},
-      ),
+            if (detailId.isEmpty) {
+              return MaterialPageRoute(
+                builder: (BuildContext context) => DetailPage("No Detail"),
+              );
+            }
+
+            String itemName = "Item Detail: $detailId";
+
+            return MaterialPageRoute(
+              builder: (BuildContext context) => DetailPage(itemName),
+            );
+          default:
+            return null;
+        }
+      },
     );
   }
 }
