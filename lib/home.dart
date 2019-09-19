@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'list_page.dart';
 import 'model/food.dart';
 
 class HomePage extends StatefulWidget {
@@ -67,8 +68,8 @@ class HomePageState extends State<HomePage> {
                       Text(_foodList[index].name),
                       Text(_foodList[index].color),
                       Divider(
-                        height: 10,
-                        color: Colors.black,
+                        thickness: 2,
+                        color: Colors.purple,
                       ),
                       Padding(
                         padding: EdgeInsets.all(8),
@@ -81,12 +82,11 @@ class HomePageState extends State<HomePage> {
               RaisedButton(
                 child: Text(
                   'Add Food',
-                  style: TextStyle(color: Colors.blue, fontSize: 16),
+                  style: TextStyle(color: Colors.purple, fontSize: 16),
                 ),
                 onPressed: () {
-                  if (!_formKey.currentState.validate()) {
-                    return;
-                  }
+                  if (!_formKey.currentState.validate()) return;
+
                   _formKey.currentState.save();
                   setState(() {
                     _foodList.add(Food(_currentName, _currentColor));
@@ -96,9 +96,12 @@ class HomePageState extends State<HomePage> {
               RaisedButton(
                 child: Text(
                   'Test',
-                  style: TextStyle(color: Colors.red, fontSize: 16),
+                  style: TextStyle(color: Colors.blue, fontSize: 16),
                 ),
-                onPressed: () => {},
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ListPage()),
+                ),
               ),
             ],
           ),
