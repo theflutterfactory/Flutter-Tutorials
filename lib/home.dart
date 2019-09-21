@@ -1,4 +1,6 @@
+import 'package:cwc_flutter/notifiers/food_notifier.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'list_page.dart';
 import 'model/food.dart';
 
@@ -12,13 +14,12 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   String _currentName;
   String _currentColor;
-  List<Food> _foodList = [];
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    print(_foodList.length);
+    FoodNotifier foodNotifier = Provider.of<FoodNotifier>(context);
 
     return Scaffold(
       appBar: AppBar(title: Text("Provider Demo")),
@@ -65,8 +66,8 @@ class HomePageState extends State<HomePage> {
                 child: ListView.builder(
                   itemBuilder: (BuildContext context, int index) => Column(
                     children: <Widget>[
-                      Text(_foodList[index].name),
-                      Text(_foodList[index].color),
+                      Text(foodNotifier.foodList[index].name),
+                      Text(foodNotifier.foodList[index].color),
                       Divider(
                         thickness: 2,
                         color: Colors.purple,
@@ -76,7 +77,7 @@ class HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
-                  itemCount: _foodList.length,
+                  itemCount: foodNotifier.foodList.length,
                 ),
               ),
               RaisedButton(
@@ -89,7 +90,7 @@ class HomePageState extends State<HomePage> {
 
                   _formKey.currentState.save();
                   setState(() {
-                    _foodList.add(Food(_currentName, _currentColor));
+                    foodNotifier.addFood(Food(_currentName, _currentColor));
                   });
                 },
               ),
