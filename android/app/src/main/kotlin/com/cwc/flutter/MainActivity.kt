@@ -1,4 +1,4 @@
-package com.example.cwc_flutter
+package com.cwc.flutter
 
 import android.os.Bundle
 
