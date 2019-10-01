@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'food_form_screen.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -21,7 +22,11 @@ class _HomeState extends State<Home> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (BuildContext context) => FoodFormScreen()),
+          );
+        },
         child: Icon(Icons.add),
       ),
     );

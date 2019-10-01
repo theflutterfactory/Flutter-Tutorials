@@ -1,6 +1,6 @@
 import 'dart:collection';
 
-import 'package:CWCFlutter/api/model/food.dart';
+import 'package:CWCFlutter/model/food.dart';
 import 'package:flutter/widgets.dart';
 
 class FoodNotifier with ChangeNotifier {
