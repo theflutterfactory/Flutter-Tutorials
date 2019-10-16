@@ -1,3 +1,4 @@
+import 'package:CWCFlutter/model/user.dart';
 import 'package:flutter/material.dart';
 
 enum AuthMode { Signup, Login }
@@ -15,6 +16,7 @@ class _LoginState extends State<Login> {
   AuthMode _authMode = AuthMode.Login;
 
   void _submitForm() {
+  User _user = User();
     if (!_formKey.currentState.validate()) {
       return;
     }
@@ -26,6 +28,28 @@ class _LoginState extends State<Login> {
     } else {
       //Sign In
     }
+  }
+
+  Widget _buildDisplayNameField() {
+    return TextFormField(
+      decoration: InputDecoration(labelText: "Display Name"),
+      keyboardType: TextInputType.text,
+      style: TextStyle(fontSize: 26),
+      validator: (String value) {
+        if (value.isEmpty) {
+          return 'Display Name is required';
+        }
+
+        if (value.length < 5 || value.length > 12) {
+          return 'Display Name must be betweem 5 and 12 characters';
+        }
+
+        return null;
+      },
+      onSaved: (String value) {
+        _user.displayName = value;
+      },
+    );
   }
 
   Widget _buildEmailField() {
@@ -47,7 +71,9 @@ class _LoginState extends State<Login> {
 
         return null;
       },
-      onSaved: (String value) {},
+      onSaved: (String value) {
+        _user.email = value;
+      },
     );
   }
 
@@ -68,7 +94,9 @@ class _LoginState extends State<Login> {
 
         return null;
       },
-      onSaved: (String value) {},
+      onSaved: (String value) {
+        _user.password = value;
+      },
     );
   }
 
@@ -91,6 +119,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Form(
+        autovalidate: true,
         key: _formKey,
         child: SingleChildScrollView(
           child: Padding(
@@ -103,6 +132,7 @@ class _LoginState extends State<Login> {
                   style: TextStyle(fontSize: 36),
                 ),
                 SizedBox(height: 32),
+                _authMode == AuthMode.Signup ? _buildDisplayNameField() : Container(),
                 _buildEmailField(),
                 _buildPasswordField(),
                 _authMode == AuthMode.Signup ? _buildConfirmPasswordField() : Container(),
