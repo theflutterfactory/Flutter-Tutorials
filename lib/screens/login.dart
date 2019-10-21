@@ -1,5 +1,8 @@
+import 'package:CWCFlutter/api/food_api.dart';
 import 'package:CWCFlutter/model/user.dart';
+import 'package:CWCFlutter/notifier/auth_notifier.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 enum AuthMode { Signup, Login }
 
@@ -15,18 +18,28 @@ class _LoginState extends State<Login> {
   final TextEditingController _passwordController = new TextEditingController();
   AuthMode _authMode = AuthMode.Login;
 
-  void _submitForm() {
   User _user = User();
+
+  @override
+  void initState() {
+    AuthNotifier authNotifier = Provider.of<AuthNotifier>(context, listen: false);
+    initializeCurrentUser(authNotifier);
+    super.initState();
+  }
+
+  void _submitForm() {
     if (!_formKey.currentState.validate()) {
       return;
     }
 
     _formKey.currentState.save();
 
+    AuthNotifier authNotifier = Provider.of<AuthNotifier>(context, listen: false);
+
     if (_authMode == AuthMode.Login) {
-      //Login
+      login(_user, authNotifier);
     } else {
-      //Sign In
+      signup(_user, authNotifier);
     }
   }
 
@@ -117,6 +130,8 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    print("Building login screen");
+
     return Scaffold(
       body: Form(
         autovalidate: true,

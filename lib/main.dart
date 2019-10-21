@@ -1,7 +1,18 @@
+import 'package:CWCFlutter/screens/feed.dart';
 import 'package:CWCFlutter/screens/login.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+import 'notifier/auth_notifier.dart';
+
+void main() => runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          builder: (context) => AuthNotifier(),
+        )
+      ],
+      child: MyApp(),
+    ));
 
 class MyApp extends StatelessWidget {
   @override
@@ -12,7 +23,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
         accentColor: Colors.blue,
       ),
-      home: Login(),
+      home: Consumer<AuthNotifier>(
+        builder: (context, notifier, child) {
+          return notifier.user != null ? Feed() : Login();
+        },
+      ),
     );
   }
 }
