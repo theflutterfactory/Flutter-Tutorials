@@ -1,5 +1,8 @@
+import 'package:CWCFlutter/model/food.dart';
 import 'package:CWCFlutter/model/user.dart';
 import 'package:CWCFlutter/notifier/auth_notifier.dart';
+import 'package:CWCFlutter/notifier/food_notifier.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 login(User user, AuthNotifier authNotifier) async {
@@ -54,4 +57,17 @@ initializeCurrentUser(AuthNotifier authNotifier) async {
     print(firebaseUser);
     authNotifier.setUser(firebaseUser);
   }
+}
+
+getFoods(FoodNotifier foodNotifier) async {
+  QuerySnapshot snapshot = await Firestore.instance.collection('Foods').getDocuments();
+
+  List<Food> _foodList = [];
+
+  snapshot.documents.forEach((document) {
+    Food food = Food.fromMap(document.data);
+    _foodList.add(food);
+  });
+
+  foodNotifier.foodList = _foodList;
 }
