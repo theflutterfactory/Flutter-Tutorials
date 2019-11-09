@@ -56,6 +56,11 @@ class FoodDetail extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => {},
+        child: Icon(Icons.edit),
+        foregroundColor: Colors.white,
+      ),
     );
   }
 }

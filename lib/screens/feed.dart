@@ -25,45 +25,51 @@ class _FeedState extends State<Feed> {
 
     print("building Feed");
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            authNotifier.user != null ? authNotifier.user.displayName : "Feed",
-          ),
-          actions: <Widget>[
-            // action button
-            FlatButton(
-              onPressed: () => signout(authNotifier),
-              child: Text(
-                "Logout",
-                style: TextStyle(fontSize: 20, color: Colors.white),
-              ),
-            ),
-          ],
+      appBar: AppBar(
+        title: Text(
+          authNotifier.user != null ? authNotifier.user.displayName : "Feed",
         ),
-        body: ListView.separated(
-          itemBuilder: (BuildContext context, int index) {
-            return ListTile(
-              leading: Image.network(
-                foodNotifier.foodList[index].image,
-                width: 120,
-                fit: BoxFit.fitWidth,
-              ),
-              title: Text(foodNotifier.foodList[index].name),
-              subtitle: Text(foodNotifier.foodList[index].category),
-              onTap: () {
-                foodNotifier.currentFood = foodNotifier.foodList[index];
-                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
-                  return FoodDetail();
-                }));
-              },
-            );
-          },
-          itemCount: foodNotifier.foodList.length,
-          separatorBuilder: (BuildContext context, int index) {
-            return Divider(
-              color: Colors.black,
-            );
-          },
-        ));
+        actions: <Widget>[
+          // action button
+          FlatButton(
+            onPressed: () => signout(authNotifier),
+            child: Text(
+              "Logout",
+              style: TextStyle(fontSize: 20, color: Colors.white),
+            ),
+          ),
+        ],
+      ),
+      body: ListView.separated(
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+            leading: Image.network(
+              foodNotifier.foodList[index].image,
+              width: 120,
+              fit: BoxFit.fitWidth,
+            ),
+            title: Text(foodNotifier.foodList[index].name),
+            subtitle: Text(foodNotifier.foodList[index].category),
+            onTap: () {
+              foodNotifier.currentFood = foodNotifier.foodList[index];
+              Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
+                return FoodDetail();
+              }));
+            },
+          );
+        },
+        itemCount: foodNotifier.foodList.length,
+        separatorBuilder: (BuildContext context, int index) {
+          return Divider(
+            color: Colors.black,
+          );
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => {},
+        child: Icon(Icons.add),
+        foregroundColor: Colors.white,
+      ),
+    );
   }
 }
