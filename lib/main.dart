@@ -25,8 +25,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Coding with Curry',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        accentColor: Colors.blue,
+        primarySwatch: Colors.blue,
+        accentColor: Colors.lightBlue,
       ),
       home: Consumer<AuthNotifier>(
         builder: (context, notifier, child) {
