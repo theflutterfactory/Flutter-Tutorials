@@ -23,6 +23,8 @@ dependencies:
   provider: ^3.1.0
   image_picker: ^0.6.1+11
   firebase_storage: ^3.0.8
+  path: ^1.6.4
+  uuid: ^2.0.4
 
   flutter:
     sdk: flutter
