@@ -2,10 +2,12 @@ import 'package:CWCFlutter/notifier/food_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'food_form.dart';
+
 class FoodDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    FoodNotifier foodNotifier = Provider.of<FoodNotifier>(context, listen: false);
+    FoodNotifier foodNotifier = Provider.of<FoodNotifier>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -16,7 +18,9 @@ class FoodDetail extends StatelessWidget {
           child: Container(
             child: Column(
               children: <Widget>[
-                Image.network(foodNotifier.currentFood.image),
+                Image.network(foodNotifier.currentFood.image != null
+                    ? foodNotifier.currentFood.image
+                    : 'https://www.testingxperts.com/wp-content/uploads/2019/02/placeholder-img.jpg'),
                 SizedBox(height: 24),
                 Text(
                   foodNotifier.currentFood.name,
@@ -61,7 +65,15 @@ class FoodDetail extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => {},
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (BuildContext context) {
+              return FoodForm(
+                isUpdating: true,
+              );
+            }),
+          );
+        },
         child: Icon(Icons.edit),
         foregroundColor: Colors.white,
       ),
