@@ -18,9 +18,14 @@ class FoodDetail extends StatelessWidget {
           child: Container(
             child: Column(
               children: <Widget>[
-                Image.network(foodNotifier.currentFood.image != null
-                    ? foodNotifier.currentFood.image
-                    : 'https://www.testingxperts.com/wp-content/uploads/2019/02/placeholder-img.jpg'),
+                Image.network(
+                  foodNotifier.currentFood.image != null
+                      ? foodNotifier.currentFood.image
+                      : 'https://www.testingxperts.com/wp-content/uploads/2019/02/placeholder-img.jpg',
+                  width: MediaQuery.of(context).size.width,
+                  height: 250,
+                  fit: BoxFit.fitWidth,
+                ),
                 SizedBox(height: 24),
                 Text(
                   foodNotifier.currentFood.name,
