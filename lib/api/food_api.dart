@@ -65,7 +65,10 @@ initializeCurrentUser(AuthNotifier authNotifier) async {
 }
 
 getFoods(FoodNotifier foodNotifier) async {
-  QuerySnapshot snapshot = await Firestore.instance.collection('Foods').getDocuments();
+  QuerySnapshot snapshot = await Firestore.instance
+      .collection('Foods')
+      .orderBy("createdAt", descending: true)
+      .getDocuments();
 
   List<Food> _foodList = [];
 
