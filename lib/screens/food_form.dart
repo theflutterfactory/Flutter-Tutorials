@@ -74,6 +74,7 @@ class _FoodFormState extends State<FoodForm> {
         children: <Widget>[
           Image.network(
             _imageUrl,
+            width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
             height: 250,
           ),
