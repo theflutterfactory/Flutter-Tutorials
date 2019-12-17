@@ -20,4 +20,14 @@ class FoodNotifier with ChangeNotifier {
     _currentFood = food;
     notifyListeners();
   }
+
+  addFood(Food food) {
+    _foodList.insert(0, food);
+    notifyListeners();
+  }
+
+  deleteFood(Food food) {
+    _foodList.removeWhere((_food) => _food.id == food.id);
+    notifyListeners();
+  }
 }

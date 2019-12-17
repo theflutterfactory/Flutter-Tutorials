@@ -161,10 +161,10 @@ class _FoodFormState extends State<FoodForm> {
     );
   }
 
-  _onFoodUploded() {
-    _scaffoldKey.currentState.showSnackBar(
-      SnackBar(content: Text('${_currentFood.name} saved')),
-    );
+  _onFoodUploaded(Food food) {
+    FoodNotifier foodNotifier = Provider.of<FoodNotifier>(context, listen: false);
+    foodNotifier.addFood(food);
+    Navigator.pop(context);
   }
 
   _addSubingredient(String text) {
@@ -188,7 +188,7 @@ class _FoodFormState extends State<FoodForm> {
 
     _currentFood.subIngredients = _subingredients;
 
-    uploadFoodAndImage(_currentFood, widget.isUpdating, _imageFile, _onFoodUploded);
+    uploadFoodAndImage(_currentFood, widget.isUpdating, _imageFile, _onFoodUploaded);
 
     print("name: ${_currentFood.name}");
     print("category: ${_currentFood.category}");

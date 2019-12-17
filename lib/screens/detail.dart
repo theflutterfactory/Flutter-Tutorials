@@ -1,3 +1,5 @@
+import 'package:CWCFlutter/api/food_api.dart';
+import 'package:CWCFlutter/model/food.dart';
 import 'package:CWCFlutter/notifier/food_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -8,6 +10,11 @@ class FoodDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FoodNotifier foodNotifier = Provider.of<FoodNotifier>(context);
+
+    _onFoodDeleted(Food food) {
+      Navigator.pop(context);
+      foodNotifier.deleteFood(food);
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -69,18 +76,32 @@ class FoodDetail extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (BuildContext context) {
-              return FoodForm(
-                isUpdating: true,
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          FloatingActionButton(
+            heroTag: 'button1',
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (BuildContext context) {
+                  return FoodForm(
+                    isUpdating: true,
+                  );
+                }),
               );
-            }),
-          );
-        },
-        child: Icon(Icons.edit),
-        foregroundColor: Colors.white,
+            },
+            child: Icon(Icons.edit),
+            foregroundColor: Colors.white,
+          ),
+          SizedBox(height: 20),
+          FloatingActionButton(
+            heroTag: 'button2',
+            onPressed: () => deleteFood(foodNotifier.currentFood, _onFoodDeleted),
+            child: Icon(Icons.delete),
+            backgroundColor: Colors.red,
+            foregroundColor: Colors.white,
+          ),
+        ],
       ),
     );
   }

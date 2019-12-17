@@ -118,7 +118,7 @@ _uploadFood(Food food, bool isUpdating, Function foodUploaded, {String imageUrl}
 
     await foodRef.document(food.id).updateData(food.toMap());
 
-    foodUploaded();
+    foodUploaded(food);
     print('updated food with id: ${food.id}');
   } else {
     food.createdAt = Timestamp.now();
@@ -131,6 +131,22 @@ _uploadFood(Food food, bool isUpdating, Function foodUploaded, {String imageUrl}
 
     await documentRef.setData(food.toMap(), merge: true);
 
-    foodUploaded();
+    foodUploaded(food);
   }
+}
+
+deleteFood(Food food, Function foodDeleted) async {
+  if (food.image != null) {
+    StorageReference storageReference =
+        await FirebaseStorage.instance.getReferenceFromUrl(food.image);
+
+    print(storageReference.path);
+
+    await storageReference.delete();
+
+    print('image deleted');
+  }
+
+  await Firestore.instance.collection('Foods').document(food.id).delete();
+  foodDeleted(food);
 }
