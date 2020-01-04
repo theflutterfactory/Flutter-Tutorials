@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Coding with Curry',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepPurple,
       ),
       home: MyHomePage(title: 'Coding with Curry'),
     );
@@ -31,12 +31,23 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('Coding with Curry'),
-          ],
+      body: Container(
+        padding: EdgeInsets.all(16),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Coding with Curry',
+                style: TextStyle(fontSize: 42),
+              ),
+              SizedBox(height: 20),
+              Text(
+                'This is the master branch. As you can see, there is not a lot here. Each branch relates to a specific Flutter topic discussed in the videos. Happy browisng!',
+                style: TextStyle(fontSize: 20),
+              ),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
