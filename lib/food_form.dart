@@ -1,6 +1,11 @@
 import 'package:CWCFlutter/food_list.dart';
 import 'package:CWCFlutter/food_list_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'bloc/food_bloc.dart';
+import 'events/food_event.dart';
+import 'model/food.dart';
 
 class FoodForm extends StatefulWidget {
   @override
@@ -42,7 +47,15 @@ class _FoodFormState extends State<FoodForm> {
       floatingActionButton: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          FloatingActionButton(heroTag: 'button1', child: Icon(Icons.save), onPressed: () => {}),
+          FloatingActionButton(
+            heroTag: 'button1',
+            child: Icon(Icons.save),
+            onPressed: () => BlocProvider.of<FoodBloc>(context).add(
+              FoodEvent.add(
+                Food(_foodname),
+              ),
+            ),
+          ),
           SizedBox(height: 16),
           FloatingActionButton(
             heroTag: 'button2',
