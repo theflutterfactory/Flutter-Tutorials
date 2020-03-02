@@ -1,5 +1,10 @@
+import 'package:CWCFlutter/bloc/food_bloc.dart';
+import 'package:CWCFlutter/db/database_provider.dart';
+import 'package:CWCFlutter/events/add_food.dart';
+import 'package:CWCFlutter/events/update_food.dart';
 import 'package:CWCFlutter/model/food.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FoodForm extends StatefulWidget {
   final Food food;
@@ -109,6 +114,18 @@ class FoodFormState extends State<FoodForm> {
 
                         _formKey.currentState.save();
 
+                        Food food = Food(
+                          name: _name,
+                          calories: _calories,
+                          isVegan: _isVegan,
+                        );
+
+                        DatabaseProvider.db.insert(food).then(
+                              (storedFood) => BlocProvider.of<FoodBloc>(context).add(
+                                AddFood(storedFood),
+                              ),
+                            );
+
                         Navigator.pop(context);
                       },
                     )
@@ -127,6 +144,18 @@ class FoodFormState extends State<FoodForm> {
                             }
 
                             _formKey.currentState.save();
+
+                            Food food = Food(
+                              name: _name,
+                              calories: _calories,
+                              isVegan: _isVegan,
+                            );
+
+                            DatabaseProvider.db.update(widget.food).then(
+                                  (storedFood) => BlocProvider.of<FoodBloc>(context).add(
+                                    UpdateFood(widget.foodIndex, food),
+                                  ),
+                                );
 
                             Navigator.pop(context);
                           },

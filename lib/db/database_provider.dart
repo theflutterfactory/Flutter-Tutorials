@@ -1,13 +1,14 @@
 import 'package:CWCFlutter/model/food.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:sqflite/sqlite_api.dart';
 
 class DatabaseProvider {
-  static const String TABLE_FOOD = 'food';
-  static const String COLUMN_ID = 'id';
-  static const String COLUMN_NAME = 'name';
-  static const String COLUMM_CALORIES = 'calories';
-  static const String COLUMN_VEGAN = 'isVegan';
+  static const String TABLE_FOOD = "food";
+  static const String COLUMN_ID = "id";
+  static const String COLUMN_NAME = "name";
+  static const String COLUMN_CALORIES = "calories";
+  static const String COLUMN_VEGAN = "isVegan";
 
   DatabaseProvider._();
   static final DatabaseProvider db = DatabaseProvider._();
@@ -16,11 +17,13 @@ class DatabaseProvider {
 
   Future<Database> get database async {
     print("database getter called");
+
     if (_database != null) {
       return _database;
     }
+
     _database = await createDatabase();
-    print("database created: $_database");
+
     return _database;
   }
 
@@ -37,7 +40,7 @@ class DatabaseProvider {
           "CREATE TABLE $TABLE_FOOD ("
           "$COLUMN_ID INTEGER PRIMARY KEY,"
           "$COLUMN_NAME TEXT,"
-          "$COLUMM_CALORIES TEXT,"
+          "$COLUMN_CALORIES TEXT,"
           "$COLUMN_VEGAN INTEGER"
           ")",
         );
@@ -48,15 +51,14 @@ class DatabaseProvider {
   Future<List<Food>> getFoods() async {
     final db = await database;
 
-    var foods = await db.query(
-      TABLE_FOOD,
-      columns: [COLUMN_ID, COLUMN_NAME, COLUMM_CALORIES, COLUMN_VEGAN],
-    );
+    var foods = await db
+        .query(TABLE_FOOD, columns: [COLUMN_ID, COLUMN_NAME, COLUMN_CALORIES, COLUMN_VEGAN]);
 
     List<Food> foodList = List<Food>();
 
     foods.forEach((currentFood) {
       Food food = Food.fromMap(currentFood);
+
       foodList.add(food);
     });
 
@@ -70,20 +72,22 @@ class DatabaseProvider {
   }
 
   Future<int> delete(int id) async {
-    var db = await database;
+    final db = await database;
+
     return await db.delete(
       TABLE_FOOD,
-      where: 'id = ?',
+      where: "id = ?",
       whereArgs: [id],
     );
   }
 
   Future<int> update(Food food) async {
-    var db = await database;
+    final db = await database;
+
     return await db.update(
       TABLE_FOOD,
       food.toMap(),
-      where: 'id = ?',
+      where: "id = ?",
       whereArgs: [food.id],
     );
   }

@@ -1,3 +1,6 @@
+import 'package:CWCFlutter/db/database_provider.dart';
+import 'package:CWCFlutter/events/delete_food.dart';
+import 'package:CWCFlutter/events/set_foods.dart';
 import 'package:CWCFlutter/food_form.dart';
 import 'package:CWCFlutter/model/food.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +16,16 @@ class FoodList extends StatefulWidget {
 }
 
 class _FoodListState extends State<FoodList> {
+  @override
+  void initState() {
+    super.initState();
+    DatabaseProvider.db.getFoods().then(
+      (foodList) {
+        BlocProvider.of<FoodBloc>(context).add(SetFoods(foodList));
+      },
+    );
+  }
+
   showFoodDialog(BuildContext context, Food food, int index) {
     showDialog(
       context: context,
@@ -30,7 +43,12 @@ class _FoodListState extends State<FoodList> {
             child: Text("Update"),
           ),
           FlatButton(
-            onPressed: () => {},
+            onPressed: () => DatabaseProvider.db.delete(food.id).then((_) {
+              BlocProvider.of<FoodBloc>(context).add(
+                DeleteFood(index),
+              );
+              Navigator.pop(context);
+            }),
             child: Text("Delete"),
           ),
           FlatButton(
