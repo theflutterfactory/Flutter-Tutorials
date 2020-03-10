@@ -370,7 +370,7 @@ SPEC CHECKSUMS:
   cloud_firestore: 49a237bd7b154ac2134bc1fca087e7d2f790973b
   cloud_firestore_web: 9ec3dc7f5f98de5129339802d491c1204462bfec
   Firebase: 0490eca762a72e4f1582319539153897f1508dee
-  firebase_auth: 6d80e045930cb692e06cf124ecbf622a7b896c8c
+  firebase_auth: 1f46484071219159ad6c64d304af425ad7373052
   firebase_auth_web: 0955c07bcc06e84af76b9d4e32e6f31518f2d7de
   firebase_core: 920b9b2a74489a0cf6c5009b744f7f7f5fd84cf6
   firebase_core_web: d501d8b946b60c8af265428ce483b0fff5ad52d1
