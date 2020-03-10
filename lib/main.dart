@@ -9,10 +9,10 @@ import 'notifier/auth_notifier.dart';
 void main() => runApp(MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          builder: (context) => AuthNotifier(),
+          create: (context) => AuthNotifier(),
         ),
         ChangeNotifierProvider(
-          builder: (context) => FoodNotifier(),
+          create: (context) => FoodNotifier(),
         ),
       ],
       child: MyApp(),
