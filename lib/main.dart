@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 void main() => runApp(
       MultiProvider(
         providers: [
-          ChangeNotifierProvider(builder: (context) => FoodNotifier()),
-          ChangeNotifierProvider(builder: (context) => UserNotifier('Coding with Curry'))
+          ChangeNotifierProvider(create: (context) => FoodNotifier()),
+          ChangeNotifierProvider(create: (context) => UserNotifier('Coding with Curry'))
         ],
         child: MyApp(),
       ),
