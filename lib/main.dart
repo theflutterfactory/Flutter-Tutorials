@@ -1,3 +1,4 @@
+import 'package:CWCFlutter/gmap.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -52,8 +53,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Increment',
-        child: Icon(Icons.add),
-        onPressed: () {},
+        child: Icon(Icons.map),
+        onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => GMap()),
+        ),
       ),
     );
   }
