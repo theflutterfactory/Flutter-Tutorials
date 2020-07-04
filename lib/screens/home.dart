@@ -1,10 +1,10 @@
+import 'package:CWCFlutter/side_drawer.dart';
+import 'package:CWCFlutter/tabs/bottom/about.dart';
+import 'package:CWCFlutter/tabs/bottom/info.dart';
+import 'package:CWCFlutter/tabs/bottom/welcome.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
-  Home({Key key, this.title}) : super(key: key);
-
-  final String title;
-
   @override
   _HomeState createState() => _HomeState();
 }
@@ -12,32 +12,36 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(widget.title)),
-      body: Container(
-        padding: EdgeInsets.all(16),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'Coding with Curry',
-                style: TextStyle(fontSize: 42),
-              ),
-              SizedBox(height: 24),
-              Text(
-                'This is the master branch. As you can see, there is not a lot here. Each branch relates to a specific Flutter topic discussed in the videos. Happy browisng!',
-                style: TextStyle(fontSize: 20),
-              ),
-            ],
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+          appBar: AppBar(
+            title: Text('Coding with Curry'),
+            bottom: TabBar(
+              tabs: [
+                Tab(
+                  text: 'Welcome',
+                  icon: Icon(Icons.home),
+                ),
+                Tab(
+                  text: 'Info',
+                  icon: Icon(Icons.settings),
+                ),
+                Tab(
+                  text: 'About',
+                  icon: Icon(Icons.fastfood),
+                ),
+              ],
+            ),
           ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-        onPressed: () {},
-      ),
+          drawer: SideDrawer(),
+          body: TabBarView(
+            children: [
+              Welcome(),
+              Info(),
+              About(),
+            ],
+          )),
     );
   }
 }
