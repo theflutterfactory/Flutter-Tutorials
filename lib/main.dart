@@ -1,4 +1,4 @@
-import 'package:CWCFlutter/home.dart';
+import 'package:CWCFlutter/screens/home.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());

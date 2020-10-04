@@ -22,11 +22,11 @@ class _HomeState extends State<Home> {
             children: <Widget>[
               Text(
                 'Coding with Curry',
-                style: TextStyle(fontSize: 42),
+                style: TextStyle(fontSize: 36),
               ),
               SizedBox(height: 24),
               Text(
-                'This is the master branch. As you can see, there is not a lot here. Each branch relates to a specific Flutter topic discussed in the videos. Happy browisng!',
+                'This is the master branch. As you can see, there is not a lot here. Each branch relates to a specific Flutter topic discussed in the videos. Happy browsing!',
                 style: TextStyle(fontSize: 20),
               ),
             ],
