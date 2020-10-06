@@ -1,3 +1,4 @@
+import 'package:CWCFlutter/widget/card_info.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -13,30 +14,57 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff470000),
       appBar: AppBar(title: Text(widget.title)),
       body: Container(
         padding: EdgeInsets.all(16),
-        child: Center(
+        child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'Coding with Curry',
-                style: TextStyle(fontSize: 36),
+            children: [
+              InfoCard(
+                title: "General",
+                body: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text("Freddy's"),
+                    SizedBox(height: 4),
+                    Text("Followers: 0"),
+                    SizedBox(height: 4),
+                    Text("Open", style: TextStyle(color: Colors.green)),
+                  ],
+                ),
               ),
-              SizedBox(height: 24),
-              Text(
-                'This is the master branch. As you can see, there is not a lot here. Each branch relates to a specific Flutter topic discussed in the videos. Happy browsing!',
-                style: TextStyle(fontSize: 20),
+              InfoCard(
+                title: "Followers",
+                body: ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: 3,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      child: Text("John"),
+                      padding: EdgeInsets.all(8),
+                    );
+                  },
+                ),
+              ),
+              InfoCard(
+                title: "Reviews",
+                body: ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: 3,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      child: Text("Good"),
+                      padding: EdgeInsets.all(8),
+                    );
+                  },
+                ),
               ),
             ],
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-        onPressed: () {},
       ),
     );
   }
