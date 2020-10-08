@@ -1,4 +1,9 @@
+import 'package:CWCFlutter/screens/add_followers.dart';
+import 'package:CWCFlutter/screens/add_reviews.dart';
+import 'package:CWCFlutter/screens/edit_follower_count.dart';
+import 'package:CWCFlutter/screens/edit_name.dart';
 import 'package:CWCFlutter/screens/home.dart';
+import 'package:CWCFlutter/screens/toggle_status.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -11,7 +16,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: Home(title: 'Coding with Curry'),
+      home: Home(title: 'GetX Restaurants'),
+      routes: {
+        'home': (context) => Home(),
+        'edit_name': (context) => EditName(),
+        'add_followers': (context) => AddFollowers(),
+        'toggle_status': (context) => ToggleStatus(),
+        'edit_follower_count': (context) => EditFollowerCount(),
+        'add_reviews': (context) => AddReviews()
+      },
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:CWCFlutter/widget/card_info.dart';
+import 'package:CWCFlutter/widget/side_drawer.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -16,6 +17,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Color(0xff470000),
       appBar: AppBar(title: Text(widget.title)),
+      drawer: SideDrawer(),
       body: Container(
         padding: EdgeInsets.all(16),
         child: SingleChildScrollView(
