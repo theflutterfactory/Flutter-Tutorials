@@ -23,7 +23,10 @@ class _InfoCardState extends State<InfoCard> {
           children: [
             Text(
               widget.title,
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
             ),
             widget.body,
           ],
