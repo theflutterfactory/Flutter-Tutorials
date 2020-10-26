@@ -2,21 +2,13 @@ import 'package:CWCFlutter/widget/card_info.dart';
 import 'package:CWCFlutter/widget/side_drawer.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatefulWidget {
-  Home({Key key, this.title}) : super(key: key);
+class Home extends StatelessWidget {
 
-  final String title;
-
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff470000),
-      appBar: AppBar(title: Text(widget.title)),
+      backgroundColor: Colors.grey,
+      appBar: AppBar(title: Text("GetX Tutorial")),
       drawer: SideDrawer(),
       body: Container(
         padding: EdgeInsets.all(16),

@@ -17,6 +17,7 @@ class _InfoCardState extends State<InfoCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 5,
       child: Padding(
         padding: EdgeInsets.all(16),
         child: Column(

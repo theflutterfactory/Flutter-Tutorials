@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Coding with Curry',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+        primarySwatch: Colors.deepOrange,
       ),
-      home: Home(title: 'GetX Restaurants'),
+      home: Home(),
       routes: {
         'home': (context) => Home(),
         'edit_name': (context) => EditName(),

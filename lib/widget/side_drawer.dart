@@ -9,7 +9,7 @@ class SideDrawer extends StatelessWidget {
           children: [
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.deepPurple,
+                color: Colors.deepOrange,
               ),
               child: Text(
                 'Test GetX',

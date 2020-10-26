@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class EditFollowerCount extends StatelessWidget {
-  const EditFollowerCount({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    print("EditFollowerCount screen building...");
+
     return Scaffold(
       appBar: AppBar(title: Text("Test Follower Count")),
       body: Container(

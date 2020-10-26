@@ -6,9 +6,11 @@ class AddFollowers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("AddFollowers screen building...");
+
     return Scaffold(
       appBar: AppBar(title: Text("Test Follower List")),
-      body: Container(
+      body: SingleChildScrollView(
         padding: EdgeInsets.all(24),
         child: Column(
           children: [
