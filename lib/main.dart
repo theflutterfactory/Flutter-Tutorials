@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
         'add_followers': (context) => AddFollowers(),
         'toggle_status': (context) => ToggleStatus(),
         'edit_follower_count': (context) => EditFollowerCount(),
-        'add_reviews': (context) => AddReviews()
+        'add_reviews': (context) => AddReviews(),
+        'update_menu': (context) => UpdateMenu(),
       },
     );
   }

@@ -1,15 +1,11 @@
-import 'package:CWCFlutter/model/food.dart';
-
 class Menu {
-  String id;
+  String name;
   String color;
-  int numOfPages;
-  List<Food> foodList;
+  String location;
 
   Menu({
-    this.id,
-    this.color,
-    this.numOfPages,
-    this.foodList,
+    this.name = "Menu",
+    this.color = "Blue",
+    this.location = "California",
   });
 }

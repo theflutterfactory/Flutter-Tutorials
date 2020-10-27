@@ -54,6 +54,13 @@ class SideDrawer extends StatelessWidget {
                 'add_reviews',
               ),
             ),
+            ListTile(
+              title: Text("Update Menu"),
+              onTap: () => Navigator.pushNamed(
+                context,
+                'update_menu',
+              ),
+            ),
           ],
         ),
       ),
