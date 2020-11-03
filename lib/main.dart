@@ -4,6 +4,7 @@ import 'package:CWCFlutter/screens/edit_follower_count.dart';
 import 'package:CWCFlutter/screens/edit_name.dart';
 import 'package:CWCFlutter/screens/home.dart';
 import 'package:CWCFlutter/screens/toggle_status.dart';
+import 'package:CWCFlutter/screens/update_menu.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
