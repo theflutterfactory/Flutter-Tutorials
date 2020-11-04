@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider<FoodBloc>(
       create: (context) => FoodBloc(),
       child: MaterialApp(
-        title: 'Coding with Curry',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
           secondaryHeaderColor: Colors.red,

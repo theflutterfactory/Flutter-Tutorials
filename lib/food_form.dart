@@ -18,8 +18,9 @@ class _FoodFormState extends State<FoodForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Coding with Curry')),
-      body: Container(
+      backgroundColor: Color(0xffd7deff),
+      appBar: AppBar(title: Text('Cheetah Coding')),
+      body: SingleChildScrollView(
         padding: EdgeInsets.all(36),
         child: Center(
           child: Column(
@@ -51,9 +52,7 @@ class _FoodFormState extends State<FoodForm> {
             heroTag: 'button1',
             child: Icon(Icons.save),
             onPressed: () => BlocProvider.of<FoodBloc>(context).add(
-              FoodEvent.add(
-                Food(_foodname),
-              ),
+              FoodEvent.add(Food(_foodname)),
             ),
           ),
           SizedBox(height: 16),

@@ -5,7 +5,7 @@ class FoodListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Coding with Curry')),
+      appBar: AppBar(title: Text('Cheetah Coding')),
       body: FoodList(),
     );
   }

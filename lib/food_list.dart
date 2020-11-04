@@ -8,7 +8,7 @@ import 'model/food.dart';
 class FoodList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: BlocConsumer<FoodBloc, List<Food>>(
           buildWhen: (List<Food> previous, List<Food> current) {
@@ -23,7 +23,7 @@ class FoodList extends StatelessWidget {
           },
           builder: (context, foodList) {
             return ListView.builder(
-              scrollDirection: Axis.vertical,
+              physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               padding: EdgeInsets.all(16),
               itemCount: foodList.length,
