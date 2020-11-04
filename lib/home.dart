@@ -22,9 +22,10 @@ class HomePageState extends State<HomePage> {
     FoodNotifier foodNotifier = Provider.of<FoodNotifier>(context);
 
     return Scaffold(
+      backgroundColor: Colors.grey,
       appBar: AppBar(title: Text("Provider Demo")),
-      body: Container(
-        margin: EdgeInsets.all(24),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(24),
         child: Form(
           key: _formKey,
           child: Column(
@@ -61,24 +62,30 @@ class HomePageState extends State<HomePage> {
                 },
               ),
               SizedBox(height: 20),
-              SizedBox(
-                height: 200,
-                child: ListView.builder(
-                  itemBuilder: (BuildContext context, int index) => Column(
-                    children: <Widget>[
-                      Text(foodNotifier.foodList[index].name),
-                      Text(foodNotifier.foodList[index].color),
-                      Divider(
-                        thickness: 2,
-                        color: Colors.purple,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(8),
-                      ),
-                    ],
+              ListView.builder(
+                shrinkWrap: true,
+                itemBuilder: (BuildContext context, int index) => Card(
+                  child: Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          foodNotifier.foodList[index].name,
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                        Text(
+                          foodNotifier.foodList[index].color,
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  itemCount: foodNotifier.foodList.length,
                 ),
+                itemCount: foodNotifier.foodList.length,
               ),
               RaisedButton(
                 child: Text(
