@@ -6,11 +6,13 @@ class Welcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       padding: EdgeInsets.all(16),
       child: Center(
         child: Text(
-          'These top tabs...',
-          style: TextStyle(fontSize: 24),
+          'Navigation in Flutter is very easy',
+          style: TextStyle(fontSize: 48),
+          textAlign: TextAlign.center,
         ),
       ),
     );

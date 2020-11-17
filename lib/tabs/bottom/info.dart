@@ -9,7 +9,7 @@ class Info extends StatelessWidget {
       padding: EdgeInsets.all(16),
       child: Center(
         child: Text(
-          'are part of...',
+          "Info",
           style: TextStyle(fontSize: 24),
         ),
       ),

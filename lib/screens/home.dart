@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
       length: 3,
       child: Scaffold(
           appBar: AppBar(
-            title: Text('Coding with Curry'),
+            title: Text('Cheetah Coding'),
             bottom: TabBar(
               tabs: [
                 Tab(

@@ -9,9 +9,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Coding with Curry',
       theme: ThemeData(
-          canvasColor: Colors.deepPurple,
+          canvasColor: Colors.green,
           accentColor: Colors.amber,
           backgroundColor: Colors.red,
           brightness: Brightness.dark),

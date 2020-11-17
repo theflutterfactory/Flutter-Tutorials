@@ -9,7 +9,7 @@ class About extends StatelessWidget {
       padding: EdgeInsets.all(16),
       child: Center(
         child: Text(
-          'the AppBar widget',
+          'About',
           style: TextStyle(fontSize: 24),
         ),
       ),
