@@ -21,22 +21,17 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'Coding with Curry',
+                'Master Branch',
                 style: TextStyle(fontSize: 36),
               ),
               SizedBox(height: 24),
               Text(
-                'This is the master branch. As you can see, there is not a lot here. Each branch relates to a specific Flutter topic discussed in the videos. Happy browsing!',
+                'As you can see, there is not a lot here. Each branch relates to a specific Flutter topic discussed in the videos. Happy browsing!',
                 style: TextStyle(fontSize: 20),
               ),
             ],
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-        onPressed: () {},
       ),
     );
   }
