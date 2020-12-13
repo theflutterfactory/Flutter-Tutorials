@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         appBarTheme: AppBarTheme(color: Color(0xFFe67e00)),
       ),
-      home: Home(title: 'Cheetah Coding'),
+      home: Home(),
     );
   }
 }

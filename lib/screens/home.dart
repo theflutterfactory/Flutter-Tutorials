@@ -1,33 +1,29 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatefulWidget {
-  Home({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title)),
+      appBar: AppBar(title: Text('Cheetah Coding')),
       body: Container(
+        color: Colors.black,
         padding: EdgeInsets.all(16),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              CircleAvatar(
+                backgroundImage: AssetImage('assets/images/logo.png'),
+                radius: 100,
+              ),
               Text(
                 'Master Branch',
-                style: TextStyle(fontSize: 36),
+                style: TextStyle(fontSize: 36, color: Colors.white),
               ),
               SizedBox(height: 24),
               Text(
-                'As you can see, there is not a lot here. Each branch relates to a specific Flutter topic discussed in the videos. Happy browsing!',
-                style: TextStyle(fontSize: 20),
+                'As you can see, there is not a lot here. Each branch relates to a specific Flutter topic discussed in the videos. Checkout the other branches and Happy browsing!',
+                style: TextStyle(fontSize: 20, color: Colors.white),
               ),
             ],
           ),
