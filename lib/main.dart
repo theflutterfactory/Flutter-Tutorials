@@ -1,7 +1,12 @@
+import 'package:CWCFlutter/controller/framework_controller.dart';
 import 'package:CWCFlutter/screens/home.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  Get.put(FrameworkController());
+  return runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
