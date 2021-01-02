@@ -9,8 +9,9 @@ class CheetahButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton(
+      padding: EdgeInsets.all(8),
       onPressed: onPressed,
-      child: Text(text),
+      child: Text(text, style: TextStyle(fontSize: 18)),
       color: Colors.black,
       textColor: Colors.white,
       splashColor: Colors.orange,

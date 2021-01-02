@@ -26,11 +26,11 @@ class Home extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text('Selected Item Goes here'),
-            TextFormField(
+            TextField(
               controller: nameController,
               decoration: InputDecoration(hintText: "Name"),
             ),
-            TextFormField(
+            TextField(
               controller: languageController,
               decoration: InputDecoration(hintText: "Language"),
             ),
