@@ -14,6 +14,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final FrameworkController controller = FrameworkController.to;
+
+  @override
+  void initState() {
+    super.initState();
+    controller.fetchAllFrameworks();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
