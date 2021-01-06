@@ -130,43 +130,45 @@ class FormScreenState extends State<FormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Form Demo")),
-      body: Container(
-        margin: EdgeInsets.all(24),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              _buildName(),
-              _buildEmail(),
-              _buildPassword(),
-              _builURL(),
-              _buildPhoneNumber(),
-              _buildCalories(),
-              SizedBox(height: 100),
-              RaisedButton(
-                child: Text(
-                  'Submit',
-                  style: TextStyle(color: Colors.blue, fontSize: 16),
-                ),
-                onPressed: () {
-                  if (!_formKey.currentState.validate()) {
-                    return;
-                  }
+      body: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.all(24),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                _buildName(),
+                _buildEmail(),
+                _buildPassword(),
+                _builURL(),
+                _buildPhoneNumber(),
+                _buildCalories(),
+                SizedBox(height: 100),
+                RaisedButton(
+                  child: Text(
+                    'Submit',
+                    style: TextStyle(color: Colors.blue, fontSize: 16),
+                  ),
+                  onPressed: () {
+                    if (!_formKey.currentState.validate()) {
+                      return;
+                    }
 
-                  _formKey.currentState.save();
+                    _formKey.currentState.save();
 
-                  print(_name);
-                  print(_email);
-                  print(_phoneNumber);
-                  print(_url);
-                  print(_password);
-                  print(_calories);
+                    print(_name);
+                    print(_email);
+                    print(_phoneNumber);
+                    print(_url);
+                    print(_password);
+                    print(_calories);
 
-                  //Send to API
-                },
-              )
-            ],
+                    //Send to API
+                  },
+                )
+              ],
+            ),
           ),
         ),
       ),
