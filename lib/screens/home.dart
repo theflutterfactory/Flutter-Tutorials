@@ -18,13 +18,34 @@ class Home extends StatelessWidget {
               ),
               SizedBox(height: 24),
               Text(
-                'Master Branch',
+                'Easy Language Translations',
                 style: TextStyle(fontSize: 36, color: Colors.white),
+                textAlign: TextAlign.center,
               ),
               SizedBox(height: 24),
               Text(
-                'As you can see, there is not a lot here. Each branch relates to a specific Flutter topic discussed in the videos. Checkout the other branches and Happy browsing!',
+                'This text will automatically be translated into the appropriate language',
                 style: TextStyle(fontSize: 20, color: Colors.white),
+              ),
+              SizedBox(height: 24),
+              FlatButton(
+                child: Text(
+                  "Change language",
+                  style: TextStyle(fontSize: 18),
+                ),
+                color: Colors.deepOrange,
+                textColor: Colors.white,
+                onPressed: () => {},
+              ),
+              SizedBox(height: 24),
+              FlatButton(
+                child: Text(
+                  "Go to Test",
+                  style: TextStyle(fontSize: 18),
+                ),
+                color: Colors.deepOrange,
+                textColor: Colors.white,
+                onPressed: () => Navigator.pushNamed(context, 'test'),
               ),
             ],
           ),
