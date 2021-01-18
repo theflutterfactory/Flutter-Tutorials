@@ -19,3 +19,8 @@ Future<Response> delete(Dio dio, String objectId) {
 Future<Response> update(Dio dio, String objectId, Map<String, dynamic> data) {
   return dio.put("/data/frameworks/$objectId", data: data);
 }
+
+Future<Response> postImage(Dio dio, String path, String fileName) {
+// https://api.backendless.com/<application-id><REST-api-key>/files/<path>/<filename>?overwrite=true
+  return dio.post("/files/$path/$fileName?overwrite=true");
+}

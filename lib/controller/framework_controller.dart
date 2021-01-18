@@ -42,6 +42,10 @@ class FrameworkController extends GetxController {
     }
   }
 
+  uploadImage(String path, String fileName) async {
+    Response response = await repository.uploadImage(path, fileName);
+  }
+
   setSelected(Framework framework) {
     selectedFramework = framework;
     update();

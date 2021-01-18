@@ -1,4 +1,5 @@
 import 'package:CWCFlutter/controller/framework_controller.dart';
+import 'package:CWCFlutter/screens/framework_form.dart';
 import 'package:CWCFlutter/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,6 +31,9 @@ class _MyAppState extends State<MyApp> {
         appBarTheme: AppBarTheme(color: Color(0xFFee5f00)),
       ),
       home: Home(),
+      routes: {
+        'form': (context) => FrameworkForm(),
+      },
     );
   }
 }

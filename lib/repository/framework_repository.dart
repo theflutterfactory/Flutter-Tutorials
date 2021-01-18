@@ -5,12 +5,9 @@ import 'package:dio/dio.dart';
 
 class FrameworkRepository {
   Dio apiClient;
-  //or Database
-  //or Shared Preference, etc
 
   FrameworkRepository() {
     apiClient = client();
-    //initialize other sources if needed
   }
 
   Future<List<Framework>> fetchAllFrameworks() async {
@@ -38,5 +35,9 @@ class FrameworkRepository {
 
   Future<Response> updateFramework(String objectId, Framework framework) async {
     return await update(apiClient, objectId, framework.toJson());
+  }
+
+  Future<Response> uploadImage(String path, String fileName) async {
+    return await postImage(apiClient, path, fileName);
   }
 }
