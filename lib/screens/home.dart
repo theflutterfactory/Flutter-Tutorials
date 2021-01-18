@@ -12,10 +12,11 @@ class Home extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              CircleAvatar(
-                backgroundImage: AssetImage('assets/images/logo.png'),
-                radius: 100,
+              Image.asset(
+                'assets/images/logo.png',
+                height: 200,
               ),
+              SizedBox(height: 24),
               Text(
                 'Master Branch',
                 style: TextStyle(fontSize: 36, color: Colors.white),
