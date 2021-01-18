@@ -2,6 +2,7 @@ class Framework {
   String name;
   String language;
   String objectId;
+  String imageUrl;
 
   Framework({this.name, this.language});
 
@@ -9,6 +10,7 @@ class Framework {
     name = json['name'];
     language = json['language'];
     objectId = json['objectId'];
+    imageUrl = json['imageUrl'];
   }
 
   Map<String, dynamic> toJson() => {
