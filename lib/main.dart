@@ -12,9 +12,10 @@ class MyApp extends StatelessWidget {
     return BlocProvider<FoodBloc>(
       create: (context) => FoodBloc(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Sqflite Tutorial',
         theme: ThemeData(
-          primarySwatch: Colors.deepPurple,
+          primarySwatch: Colors.red,
         ),
         home: FoodList(),
       ),

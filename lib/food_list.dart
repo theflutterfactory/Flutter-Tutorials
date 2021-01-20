@@ -64,25 +64,35 @@ class _FoodListState extends State<FoodList> {
   Widget build(BuildContext context) {
     print("Building entire food list scaffold");
     return Scaffold(
-      appBar: AppBar(title: Text("FoodList")),
+      appBar: AppBar(
+        title: Text("Persistent storage"),
+        leading: Image.asset(
+          'assets/images/logo.png',
+        ),
+      ),
       body: Container(
+        padding: EdgeInsets.all(8),
+        color: Colors.grey,
         child: BlocConsumer<FoodBloc, List<Food>>(
           builder: (context, foodList) {
-            return ListView.separated(
+            return ListView.builder(
               itemBuilder: (BuildContext context, int index) {
                 print("foodList: $foodList");
 
                 Food food = foodList[index];
-                return ListTile(
-                    title: Text(food.name, style: TextStyle(fontSize: 30)),
+                return Card(
+                  child: ListTile(
+                    contentPadding: EdgeInsets.all(16),
+                    title: Text(food.name, style: TextStyle(fontSize: 26)),
                     subtitle: Text(
                       "Calories: ${food.calories}\nVegan: ${food.isVegan}",
                       style: TextStyle(fontSize: 20),
                     ),
-                    onTap: () => showFoodDialog(context, food, index));
+                    onTap: () => showFoodDialog(context, food, index),
+                  ),
+                );
               },
               itemCount: foodList.length,
-              separatorBuilder: (BuildContext context, int index) => Divider(color: Colors.black),
             );
           },
           listener: (BuildContext context, foodList) {},
