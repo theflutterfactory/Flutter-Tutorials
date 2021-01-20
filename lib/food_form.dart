@@ -89,8 +89,8 @@ class FoodFormState extends State<FoodForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Food Form")),
-      body: Container(
-        margin: EdgeInsets.all(24),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(24),
         child: Form(
           key: _formKey,
           child: Column(
@@ -121,7 +121,8 @@ class FoodFormState extends State<FoodForm> {
                         );
 
                         DatabaseProvider.db.insert(food).then(
-                              (storedFood) => BlocProvider.of<FoodBloc>(context).add(
+                              (storedFood) =>
+                                  BlocProvider.of<FoodBloc>(context).add(
                                 AddFood(storedFood),
                               ),
                             );
@@ -152,7 +153,8 @@ class FoodFormState extends State<FoodForm> {
                             );
 
                             DatabaseProvider.db.update(widget.food).then(
-                                  (storedFood) => BlocProvider.of<FoodBloc>(context).add(
+                                  (storedFood) =>
+                                      BlocProvider.of<FoodBloc>(context).add(
                                     UpdateFood(widget.foodIndex, food),
                                   ),
                                 );
