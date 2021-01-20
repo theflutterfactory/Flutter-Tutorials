@@ -57,19 +57,25 @@ class _CurryFormScreenState extends State<CurryFormScreen> {
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            title: Text('Coding with Curry'),
-            backgroundColor: Colors.deepPurple,
+            title: Text('Cheetah Coding'),
+            pinned: true,
             expandedHeight: 200,
+            leading: Image.asset(
+              'assets/images/logo.png',
+              fit: BoxFit.cover,
+            ),
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.network(
-                  'https://chefjet.com/wp-content/uploads/2017/06/Jet-Tila-Thai-Chicken-Curry.jpg',
-                  fit: BoxFit.cover),
+              background: Image.asset(
+                'assets/images/header.jpg',
+                height: 200,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-          CurrySliverHeader(Colors.purple, "Header 1"),
-          CurrySliverHeader(Colors.deepPurple, "Header 2"),
+          CurrySliverHeader(Colors.green, "Sticky Header 1"),
+          CurrySliverHeader(Colors.red, "Sticky Header 2"),
           SliverFixedExtentList(
-            itemExtent: 150,
+            itemExtent: 100,
             delegate: SliverChildListDelegate([
               _buildListWidget(Colors.purple, "Curry"),
               _buildListWidget(Colors.blue, "Rice"),
@@ -105,7 +111,8 @@ class _CurryFormScreenState extends State<CurryFormScreen> {
           SliverGrid(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3, mainAxisSpacing: 8, crossAxisSpacing: 8),
-            delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
+            delegate:
+                SliverChildBuilderDelegate((BuildContext context, int index) {
               return Container(
                 padding: EdgeInsets.all(10),
                 color: Colors.deepPurple,
@@ -117,9 +124,7 @@ class _CurryFormScreenState extends State<CurryFormScreen> {
                   ),
                 ),
               );
-            },
-            childCount: _nameList.length
-            ),
+            }, childCount: _nameList.length),
           )
         ],
       ),
