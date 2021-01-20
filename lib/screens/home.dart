@@ -1,10 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:CWCFlutter/cheetah_text.dart';
 
 class Home extends StatelessWidget {
+  final locales = [
+    {'name': 'English', 'locale': Locale('en', 'US')},
+    {'name': 'Hindi', 'locale': Locale('hi', 'IN')},
+    {'name': 'German', 'locale': Locale('de', 'DE')},
+    {'name': 'Vietnamese', 'locale': Locale('vi', 'VN')}
+  ];
+
+  showLocaleDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        title: Text("Choose your language"),
+        content: Container(
+          width: double.maxFinite,
+          child: ListView.separated(
+            shrinkWrap: true,
+            itemBuilder: (context, index) => InkWell(
+              child: Padding(
+                child: Text(locales[index]['name']),
+                padding: EdgeInsets.symmetric(vertical: 8),
+              ),
+              onTap: () => updateLocale(
+                locales[index]['locale'],
+                context,
+              ),
+            ),
+            separatorBuilder: (context, index) => Divider(
+              color: Colors.black,
+            ),
+            itemCount: 4,
+          ),
+        ),
+      ),
+    );
+  }
+
+  updateLocale(Locale locale, BuildContext context) {
+    Navigator.of(context).pop();
+    Get.updateLocale(locale);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Cheetah Coding')),
+      appBar: AppBar(title: CheetahText('appbar1')),
       body: Container(
         color: Colors.black,
         padding: EdgeInsets.all(16),
@@ -18,29 +61,29 @@ class Home extends StatelessWidget {
               ),
               SizedBox(height: 24),
               Text(
-                'Easy Language Translations',
+                'title'.tr,
                 style: TextStyle(fontSize: 36, color: Colors.white),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 24),
               Text(
-                'This text will automatically be translated into the appropriate language',
+                'subtitle'.tr,
                 style: TextStyle(fontSize: 20, color: Colors.white),
               ),
               SizedBox(height: 24),
               FlatButton(
                 child: Text(
-                  "Change language",
+                  "button1".tr,
                   style: TextStyle(fontSize: 18),
                 ),
                 color: Colors.indigo,
                 textColor: Colors.white,
-                onPressed: () => {},
+                onPressed: () => showLocaleDialog(context),
               ),
               SizedBox(height: 24),
               FlatButton(
                 child: Text(
-                  "Go to Test",
+                  "button2".tr,
                   style: TextStyle(fontSize: 18),
                 ),
                 color: Colors.indigo,
