@@ -1,4 +1,6 @@
 class User {
   String name;
-  int age;
+  String city;
+
+  User(this.name, this.city);
 }
