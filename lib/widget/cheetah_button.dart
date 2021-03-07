@@ -13,19 +13,24 @@ class CheetahButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-      padding: EdgeInsets.all(16),
-      color: Theme.of(context).primaryColor,
-      child: Text(
-        text,
-        style: TextStyle(
-          fontSize: 16,
-          color: Colors.white,
+    return Expanded(
+      child: TextButton(
+        style: TextButton.styleFrom(
+          padding: EdgeInsets.all(16),
+          elevation: 8,
+          backgroundColor: Theme.of(context).primaryColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
         ),
-      ),
-      onPressed: onPressed,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 16,
+            color: Colors.white,
+          ),
+        ),
+        onPressed: onPressed,
       ),
     );
   }
