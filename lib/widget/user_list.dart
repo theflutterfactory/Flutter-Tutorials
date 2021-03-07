@@ -12,6 +12,7 @@ class UserList extends StatelessWidget {
     return ListView.builder(
       shrinkWrap: true,
       itemBuilder: (BuildContext context, int index) => Card(
+        elevation: 8,
         child: Padding(
           padding: EdgeInsets.all(16),
           child: Row(

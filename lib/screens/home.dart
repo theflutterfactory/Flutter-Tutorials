@@ -41,7 +41,7 @@ class HomeState extends State<Home> {
         ),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(24),
+        padding: EdgeInsets.all(32),
         child: Form(
           key: _formKey,
           child: Column(
@@ -62,10 +62,10 @@ class HomeState extends State<Home> {
               ),
               SizedBox(height: 20),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CheetahButton(
-                    text: 'Add Food',
+                    text: 'Add',
                     onPressed: () {
                       if (!_formKey.currentState.validate()) return;
 
@@ -74,8 +74,9 @@ class HomeState extends State<Home> {
                       addUser(User(_name, _city));
                     },
                   ),
+                  SizedBox(width: 8),
                   CheetahButton(
-                    text: 'List Screen',
+                    text: 'List',
                     onPressed: () {
                       Navigator.push(
                         context,
