@@ -36,7 +36,7 @@ class HomeState extends State<Home> {
       backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
         title: Text(
-          "Provider Demo",
+          "Riverpod Demo",
           style: TextStyle(color: Colors.white),
         ),
       ),
