@@ -47,6 +47,11 @@ class HomeState extends State<Home> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Text(
+                "Cheetah Coding",
+                style: TextStyle(fontSize: 30),
+              ),
+              SizedBox(height: 16),
               CheetahInput(
                 labelText: 'Name',
                 onSaved: (String value) {
