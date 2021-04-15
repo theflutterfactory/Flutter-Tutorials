@@ -11,8 +11,8 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
-  String _name;
-  String _city;
+  String? _name;
+  String? _city;
 
   List<User> userList = [];
 
@@ -54,14 +54,14 @@ class HomeState extends State<Home> {
               SizedBox(height: 16),
               CheetahInput(
                 labelText: 'Name',
-                onSaved: (String value) {
+                onSaved: (String? value) {
                   _name = value;
                 },
               ),
               SizedBox(height: 16),
               CheetahInput(
                 labelText: 'City',
-                onSaved: (String value) {
+                onSaved: (String? value) {
                   _city = value;
                 },
               ),
@@ -72,9 +72,9 @@ class HomeState extends State<Home> {
                   CheetahButton(
                     text: 'Add',
                     onPressed: () {
-                      if (!_formKey.currentState.validate()) return;
+                      if (!_formKey.currentState!.validate()) return;
 
-                      _formKey.currentState.save();
+                      _formKey.currentState!.save();
 
                       addUser(User(_name, _city));
                     },

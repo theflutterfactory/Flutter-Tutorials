@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 class CheetahButton extends StatelessWidget {
   final String text;
   final Function onPressed;
-  final Color color;
+  final Color? color;
 
   CheetahButton({
-    @required this.text,
-    @required this.onPressed,
+    required this.text,
+    required this.onPressed,
     this.color,
   });
 
@@ -30,7 +30,7 @@ class CheetahButton extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        onPressed: onPressed,
+        onPressed: onPressed as void Function()?,
       ),
     );
   }

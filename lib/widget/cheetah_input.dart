@@ -5,8 +5,8 @@ class CheetahInput extends StatelessWidget {
   final Function onSaved;
 
   CheetahInput({
-    @required this.labelText,
-    @required this.onSaved,
+    required this.labelText,
+    required this.onSaved,
   });
 
   @override
@@ -22,14 +22,14 @@ class CheetahInput extends StatelessWidget {
         floatingLabelBehavior: FloatingLabelBehavior.never,
       ),
       initialValue: '',
-      validator: (String value) {
-        if (value.isEmpty) {
+      validator: (String? value) {
+        if (value!.isEmpty) {
           return '$labelText is required';
         }
 
         return null;
       },
-      onSaved: onSaved,
+      onSaved: onSaved as void Function(String?)?,
     );
   }
 }
