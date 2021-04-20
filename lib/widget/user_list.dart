@@ -1,45 +1,54 @@
-import 'package:CWCFlutter/model/user.dart';
+import 'package:CWCFlutter/controller/providers.dart';
+import 'package:CWCFlutter/controller/user_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class UserList extends StatelessWidget {
-  final List<User> users;
-  final Function(User) onDelete;
-
-  UserList(this.users, this.onDelete);
-
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      itemBuilder: (BuildContext context, int index) => Card(
-        elevation: 8,
-        child: Padding(
-          padding: EdgeInsets.all(16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Name: ${users[index].name}',
-                    style: TextStyle(fontSize: 18),
+    print("UserList rebuilding...");
+
+    return Consumer(
+      builder: (context, watch, child) {
+        final userList = watch(userListProvider);
+
+        return ListView.builder(
+          shrinkWrap: true,
+          itemBuilder: (BuildContext context, int index) => Card(
+            elevation: 8,
+            child: Padding(
+              padding: EdgeInsets.all(16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Name: ${userList[index].name}',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      Text(
+                        'City: ${userList[index].city}',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ],
                   ),
-                  Text(
-                    'City: ${users[index].city}',
-                    style: TextStyle(fontSize: 18),
-                  ),
+                  IconButton(
+                    icon: Icon(Icons.delete),
+                    onPressed: () {
+                      UserListController controller =
+                          context.read(userListProvider.notifier);
+                      controller.deleteUser(userList[index]);
+                    },
+                  )
                 ],
               ),
-              IconButton(
-                icon: Icon(Icons.delete),
-                onPressed: () => onDelete(users[index]),
-              )
-            ],
+            ),
           ),
-        ),
-      ),
-      itemCount: users.length,
+          itemCount: userList.length,
+        );
+      },
     );
   }
 }
