@@ -6,11 +6,12 @@ Future<String> getProfileUserName() async {
   return "Julian Currie";
 }
 
-Stream<int> getSessionTime() {
-  return Stream.periodic(Duration(seconds: 1), (sessionTime) => sessionTime++);
 Future<String> getCountry() async {
   await Future.delayed(Duration(seconds: 5));
 
   return "Thailand";
 }
+
+Stream<int> getSessionTime() {
+  return Stream.periodic(Duration(seconds: 1), (sessionTime) => sessionTime++);
 }
