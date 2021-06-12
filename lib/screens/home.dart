@@ -12,10 +12,7 @@ class Home extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.asset(
-                'assets/images/logo.png',
-                height: 200,
-              ),
+              Image.asset('assets/images/logo.png', height: 200),
               SizedBox(height: 24),
               Text(
                 'Master Branch',
