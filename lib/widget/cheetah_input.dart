@@ -22,7 +22,7 @@ class CheetahInput extends StatelessWidget {
       validator: (String value) {
         return value.isEmpty ? '$labelText is required' : null;
       },
-      onSaved: onSaved(),
+      onSaved: onSaved,
     );
   }
 }
