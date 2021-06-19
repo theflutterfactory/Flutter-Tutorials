@@ -15,12 +15,14 @@ class CheetahButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Container(
+      width: 240,
       child: TextButton(
         style: TextButton.styleFrom(
           padding: EdgeInsets.all(16),
           elevation: 8,
-          backgroundColor: color ?? Theme.of(context).primaryColor,
+          backgroundColor: color ?? Colors.black87,
+          primary: Colors.deepOrange,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
@@ -28,7 +30,7 @@ class CheetahButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            fontSize: 16,
+            fontSize: 24,
             color: textColor ?? Colors.white,
           ),
         ),

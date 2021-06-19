@@ -1,27 +1,41 @@
+import 'package:CWCFlutter/screens/languages.dart';
+import 'package:CWCFlutter/widget/cheetah_button.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Cheetah Coding')),
+      appBar: AppBar(
+        leading: Image.asset('assets/images/logo.png'),
+        title: Text('Easy Localizations'),
+      ),
       body: Container(
-        color: Colors.black,
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.all(24),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.asset('assets/images/logo.png', height: 200),
-              SizedBox(height: 24),
               Text(
-                'Master Branch',
-                style: TextStyle(fontSize: 36, color: Colors.white),
+                'Cheetah Coding',
+                style: TextStyle(fontSize: 40),
               ),
               SizedBox(height: 24),
               Text(
-                'As you can see, there is not a lot here. Each branch relates to a specific Flutter topic discussed in the videos. Checkout the other branches and Happy browsing!',
-                style: TextStyle(fontSize: 20, color: Colors.white),
+                'It is very easy to switch between languages in Flutter using the Easy Localization library.',
+                style: TextStyle(
+                  fontSize: 24,
+                ),
+              ),
+              SizedBox(height: 24),
+              CheetahButton(
+                text: 'Switch Language',
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Languages(),
+                  ),
+                ),
               ),
             ],
           ),
