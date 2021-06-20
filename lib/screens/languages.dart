@@ -7,18 +7,25 @@ class Languages extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Languages")),
       body: Container(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.all(24),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Text(
+                'Select a language. The changes will automatically be applied to all the Text widgets with the .tr extension throughout the app.',
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+              SizedBox(height: 32),
               CheetahButton(
                 text: 'English',
                 onPressed: () => {},
               ),
               SizedBox(height: 32),
               CheetahButton(
-                text: 'Spanish',
+                text: 'Portuguese',
                 onPressed: () => {},
               ),
               SizedBox(height: 32),
