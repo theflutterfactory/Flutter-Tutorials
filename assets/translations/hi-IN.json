@@ -1,0 +1,9 @@
+{
+	"home_description": "आसान स्थानीयकरण पुस्तकालय का उपयोग करके स्पंदन में भाषाओं के बीच स्विच करना बहुत आसान है।",
+	"home_btn_text": "भाषा बदलें",
+	"languages_description": "भाषा चुनें। परिवर्तन पूरे ऐप में .tr एक्सटेंशन के साथ सभी टेक्स्ट विजेट्स पर स्वचालित रूप से लागू हो जाएंगे।",
+	"languages_btn_english": "अंग्रेज़ी",
+	"languages_btn_portuguese": "पुर्तगाली",
+	"languages_btn_hindi": "हिंदी",
+	"languages_btn_vietnamese": "वियतनामी"
+}

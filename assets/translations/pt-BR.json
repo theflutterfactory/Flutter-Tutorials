@@ -1,0 +1,9 @@
+{
+	"home_description": "É muito fácil alternar entre os idiomas no Flutter usando a biblioteca Easy Localization.",
+	"home_btn_text": "Mudar de idioma",
+	"languages_description": "Selecione um idioma. As alterações serão aplicadas automaticamente a todos os widgets de texto com a extensão .tr em todo o aplicativo.",
+	"languages_btn_english": "inglês",
+	"languages_btn_portuguese": "português",
+	"languages_btn_hindi": "Hindi",
+	"languages_btn_vietnamese": "vietnamita"
+}

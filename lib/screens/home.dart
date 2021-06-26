@@ -1,10 +1,15 @@
+import 'package:CWCFlutter/controller/language_controller.dart';
 import 'package:CWCFlutter/screens/languages.dart';
 import 'package:CWCFlutter/widget/cheetah_button.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    context.watch<LanguageController>();
+
     return Scaffold(
       appBar: AppBar(
         leading: Image.asset('assets/images/logo.png'),
@@ -22,14 +27,14 @@ class Home extends StatelessWidget {
               ),
               SizedBox(height: 24),
               Text(
-                'It is very easy to switch between languages in Flutter using the Easy Localization library.',
+                'home_description'.tr(),
                 style: TextStyle(
                   fontSize: 24,
                 ),
               ),
               SizedBox(height: 24),
               CheetahButton(
-                text: 'Switch Language',
+                text: 'home_btn_text'.tr(),
                 onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(

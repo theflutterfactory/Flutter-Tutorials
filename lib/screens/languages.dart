@@ -1,9 +1,14 @@
+import 'package:CWCFlutter/controller/language_controller.dart';
 import 'package:CWCFlutter/widget/cheetah_button.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:provider/provider.dart';
 
 class Languages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    LanguageController controller = context.read<LanguageController>();
+
     return Scaffold(
       appBar: AppBar(title: Text("Languages")),
       body: Container(
@@ -13,30 +18,40 @@ class Languages extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Select a language. The changes will automatically be applied to all the Text widgets with the .tr extension throughout the app.',
-                style: TextStyle(
-                  fontSize: 20,
-                ),
+                'Choose your language',
+                style: TextStyle(fontSize: 30),
               ),
               SizedBox(height: 32),
               CheetahButton(
-                text: 'English',
-                onPressed: () => {},
+                text: 'languages_btn_english'.tr(),
+                onPressed: () {
+                  context.locale = Locale('en', 'US');
+                  controller.onLanguageChanged();
+                },
               ),
               SizedBox(height: 32),
               CheetahButton(
-                text: 'Portuguese',
-                onPressed: () => {},
+                text: 'languages_btn_portuguese'.tr(),
+                onPressed: () {
+                  context.locale = Locale('pt', 'BR');
+                  controller.onLanguageChanged();
+                },
               ),
               SizedBox(height: 32),
               CheetahButton(
-                text: 'Hindi',
-                onPressed: () => {},
+                text: 'languages_btn_hindi'.tr(),
+                onPressed: () {
+                  context.locale = Locale('hi', 'IN');
+                  controller.onLanguageChanged();
+                },
               ),
               SizedBox(height: 32),
               CheetahButton(
-                text: 'Vietnamese',
-                onPressed: () => {},
+                text: 'languages_btn_vietnamese'.tr(),
+                onPressed: () {
+                  context.locale = Locale('vi', 'VN');
+                  controller.onLanguageChanged();
+                },
               ),
             ],
           ),

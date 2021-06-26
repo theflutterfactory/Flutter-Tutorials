@@ -1,0 +1,9 @@
+{
+	"home_description": "Rất dễ dàng chuyển đổi giữa các ngôn ngữ trong Flutter bằng cách sử dụng thư viện Easy Localization.",
+	"home_btn_text": "Chuyển đổi ngôn ngữ",
+	"languages_description": "Chọn một ngôn ngữ. Các thay đổi sẽ tự động được áp dụng cho tất cả các tiện ích Văn bản có phần mở rộng .tr trong toàn bộ ứng dụng.",
+	"languages_btn_english": "Tiếng Anh",
+	"languages_btn_portuguese": "tiếng Bồ Đào Nha",
+	"languages_btn_hindi": "Tiếng Hindi",
+	"languages_btn_vietnamese": "Tiếng Việt"
+}

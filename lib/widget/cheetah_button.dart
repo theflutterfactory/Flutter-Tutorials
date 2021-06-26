@@ -30,7 +30,7 @@ class CheetahButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            fontSize: 24,
+            fontSize: 36,
             color: textColor ?? Colors.white,
           ),
         ),
