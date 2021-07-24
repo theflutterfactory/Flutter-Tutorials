@@ -17,6 +17,7 @@ class Languages extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Image.asset('assets/images/logo.png'),
               Text(
                 'Choose your language',
                 style: TextStyle(fontSize: 30),
