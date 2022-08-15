@@ -4,7 +4,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Cheetah Coding')),
+      appBar: AppBar(title: Text('The Flutter Factory')),
       body: Container(
         color: Colors.black,
         padding: EdgeInsets.all(16),
