@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class InputPrefab extends StatelessWidget {
-  final String labelText;
-  final Function onSaved;
+  final String? labelText;
+  final Function(String?)? onSaved;
 
   InputPrefab({@required this.labelText, @required this.onSaved});
 
@@ -19,8 +19,8 @@ class InputPrefab extends StatelessWidget {
         floatingLabelBehavior: FloatingLabelBehavior.never,
       ),
       initialValue: '',
-      validator: (String value) {
-        return value.isEmpty ? '$labelText is required' : null;
+      validator: (String? value) {
+        return value == null ? '$labelText is required' : null;
       },
       onSaved: onSaved,
     );

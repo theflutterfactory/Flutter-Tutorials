@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class ButtonPrefab extends StatelessWidget {
   final String text;
-  final Function onPressed;
-  final Color color;
-  final Color textColor;
+  final VoidCallback onPressed;
+  final Color? color;
+  final Color? textColor;
 
   ButtonPrefab({
-    @required this.text,
-    @required this.onPressed,
+    required this.text,
+    required this.onPressed,
     this.color,
     this.textColor,
   });
