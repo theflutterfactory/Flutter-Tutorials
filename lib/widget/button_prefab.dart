@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class CheetahButton extends StatelessWidget {
+class ButtonPrefab extends StatelessWidget {
   final String text;
   final Function onPressed;
   final Color color;
   final Color textColor;
 
-  CheetahButton({
+  ButtonPrefab({
     @required this.text,
     @required this.onPressed,
     this.color,
